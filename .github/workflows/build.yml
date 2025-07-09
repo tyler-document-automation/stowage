@@ -20,12 +20,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       name: Check-out source code
       with:
         submodules: true
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
           6.0.x
@@ -47,7 +47,7 @@ jobs:
         echo "${{ env.v }}" >> artifacts/version.txt
         cp docs/release-history.md artifacts/
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       name: upload artifacts
       with:
         name: lib
